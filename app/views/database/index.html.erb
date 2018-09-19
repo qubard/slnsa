@@ -1,0 +1,39 @@
+		<h2>Wiretaps</h2>
+			<table style="width:100%; max-width: 860px">
+				<tbody><tr>
+					<td>
+						<a href="">Onatopp Wed Feb 7 2018</a>
+					</td><td>
+					</td><td>
+						<a href="">Onatopp Wed Feb 8 2018</a>
+					</td>
+					<td>
+						<a href="">Onatopp Wed Feb 9 2018</a>
+					</td>
+				</tr>
+			</tbody></table>
+		<% if @residents.size > 0%>
+		<h2>Residents</h2>
+		<input class="query" style="width:300px; padding: 4px; border: 1px solid #6c9ebd" placeholder="filter by name, personality type, age, bio">
+		<p>All information collected is reliable and accurate. Before adding a resident, ensure you know as much about them as possible.</p>
+		<% @index = -1 %>
+			<table style="width:780px">
+				<tbody>
+				<% @residents.each do |resident| %>
+					<% @index = (@index+1) % 4 %>
+					<% if @index == 0 %>
+					<tr>
+					<% end %>
+					<td><a href="/database/resident/<%= resident.name %>"><%= resident.name %></a></td>
+					<% if @index == 3 %>
+					</tr>
+					<% end %>
+				<% end %>
+				</tbody>
+			</table>
+		<% end %>
+		<a href="/database/add">
+			<div class="button" style="width: 150px; margin-top: 15px; margin-bottom: 15px">
+				Add resident
+			</div>
+		</a>

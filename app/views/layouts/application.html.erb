@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.2.2/cropper.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.2.2/cropper.js"></script>
+<style>
+	body {
+		background-color: #fff;
+		font: 12px Arial, Helvetica, sans-serif;
+		color: #404040;
+		margin: 0;
+	}
+	
+	#notification {
+		border-radius: 4px;
+		margin-top: 15px;
+		border: 1px solid #dadf96;
+		background-color: #fffedf;
+		font-size: 12px;
+		display:inline-block;
+		color: #404040;
+		background-repeat: no-repeat;
+		margin-bottom: 5px;
+		background-position: center;
+	}
+	
+	#notification b {
+		color: #404040;
+	}
+	
+	#notification p {
+		margin: 0px auto; 
+		margin-left: 10px; 
+		padding: 10px
+	}
+	
+	#notification.alert {
+	    border: 1px solid #ff6d6d;
+		background-color: #ffdfdf;
+	}
+	
+	#notification.success {
+	    border: 1px solid #75ff6d;
+		background-color: #e5ffe3;
+	}
+	
+	#outer-container {
+		margin-left: 30px;
+	}
+	
+	#container {
+		width: 822px;
+	}
+	
+	#masthead {
+		font-size: 14px;
+		height: 55px;
+		margin-bottom: 30px;
+	}
+	
+	#masthead .inner {
+		padding: 5px;
+		margin-left: 5px;
+	}
+	
+	b, h1, h2, h3 {
+		color: #79ceb8;
+	}
+	
+	#login label {
+		font-weight: bold;
+		color: #808080;
+	}
+	
+	#login input {
+		margin-bottom: 10px;
+	}
+	
+	.afield {
+	    padding: 5px;
+		width: 310px;
+		border: 1px solid #cccccc;
+	}
+	
+	#fields {
+		padding: 20px;
+		border: 1px solid #e1e1e1;
+		border-radius: 4px;
+	}
+	
+	#masthead {
+		width: 100%;
+		border-bottom: 1px solid #ededed;
+		position: relative;
+		background-color: #fff;
+		z-index: 99;
+	}
+	
+	#pane {
+		margin-top: -10px;
+	}
+	
+	.button {
+		outline: none;
+		cursor: pointer;
+		text-align: center;
+		text-decoration: none;
+		font: 14px Arial, Helvetica, sans-serif;
+		padding: 5px 10px 6px;
+		text-shadow: 0 1px 1px rgba(0,0,0,.3);
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+		/* box-shadow: 0 1px 2px rgba(0,0,0,.2); */
+		font-weight: bold;
+		border: 0;
+		line-height: 1;
+		padding: 9px;
+		background-color: #85c5ad;
+		background: -webkit-gradient(linear, left top, left bottom, from(#85c5ad), to(#5eb293));
+		background: -moz-linear-gradient(top, #85c5ad, #5eb293);
+		color: #fff;
+	}
+	
+	.button:hover {
+		background: -webkit-gradient(linear, left top, left bottom, from(#aed1e6), to(#6c9ebd));
+		background: -moz-linear-gradient(top, #5eb293, #85c5ad);
+	}
+	
+	#post_header {
+		font-size: 14px;
+		line-height: 14px;
+	}
+	
+	tr {
+		text-align: left;
+	}
+	
+	#small-header {
+		width: 300px;
+		margin: 0px auto;
+	}
+	
+	#security-tip {
+		background-color: #fffedf;
+		border-radius: 4px;
+		margin-top: 5px;
+		border: 1px solid #dadf96;
+		font-size: 12px;
+		display: inline-block;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	
+		
+	#warning {
+		background-color: rgba(255,0,0,0.5);
+		border: 1px solid red;
+		border-radius: 4px;
+		margin-top: 5px;
+		font-size: 12px;
+		color: #fff;
+		padding: 10px;
+		display: inline-block;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+	
+	textarea {
+		font-family: inherit;
+		margin-top: 5px;
+		padding: 5px;
+	}
+	
+	a {
+		color: #6c9ebd;
+		text-decoration: none;
+	}
+	
+	a:hover {
+		color: #79ceb8;
+	}
+	
+	td {
+		font-size: 12px;
+	}
+
+	#tab {
+		padding: 3px;
+		border: 1px solid #ededed;
+	}
+	
+	.tabmenu li {
+		display: inline;
+		font-weight: bold;
+		margin: 0px 3px;
+	}
+
+	.tabmenu {
+		list-style-type: none;
+		white-space: nowrap;
+		display: inline-block;
+		margin-top: 39px;
+		vertical-align: bottom;
+	}
+
+	.tabmenu li.selected a {
+		color: #79ceb8;
+		background-color: white;
+		border: 1px solid #79ceb8;
+		border-bottom: 1px solid white;
+		z-index: 100;
+	}
+
+	.tabmenu li a {
+		padding: 2px 6px 0 6px;
+		color: #fff;
+		background-color: #6c9ebd;
+	}
+	
+	a.button:hover {
+		color: #fff;
+	}
+	
+	#security-tip b {
+		color: #404040;
+	}
+	
+	span.stats {
+		background-color: #79ceb8;
+		width: 142px;
+		display: block;
+		padding: 4px;
+		margin-top: -3px;
+		color: #FFF;
+		text-align: center;
+		font-weight: bold;
+		font-size: 14px;
+	}
+	
+	.demo {
+		width: 300px;
+		height: 300px;
+	}
+</style>
+</head>
+<body>
+	<%= render partial: "layouts/header" %>
+	<div id="outer-container">
+		<%= yield %>
+	</div>
+</body>
+</html>

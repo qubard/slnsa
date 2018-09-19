@@ -1,0 +1,21 @@
+better uniqueness checking (if they submit something close it just shows that back as a recommendation)
+recaptcha registration
+imagemagick resize avatar after upload
+sl check key for uniqueness
+
+more constraints in models
+
+search bars working
+fix notification js thing
+
+allow users to change photo in field
+
+sanitize images uploaded and resize them
+
+rules page
+
+edit/revision history
+
+references citations (in numbers)
+
+bb-ruby

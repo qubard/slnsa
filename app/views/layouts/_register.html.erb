@@ -1,0 +1,12 @@
+<form action="/register" method="post">
+	<label for="username">Username:</label></br>
+	<input style="margin-top:5px" class="afield" type="text" name="username" id="username" value="">
+	</br>
+	<label style="margin-top:5px" for="password">Password:</label></br>
+	<input type="password" name="password" class="afield" id="password" value="">
+	</br>
+	<input type="checkbox" name="remember_me" value="remember_me" id="remember_me" class="checkbox"> 
+	<label for="remember_me">Remember me</label></br>
+	<%= submit_tag "Register", class: "button wide" %>
+	<p style="float: right"><a href="/login">go back</a>
+</form>

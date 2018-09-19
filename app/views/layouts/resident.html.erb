@@ -1,0 +1,36 @@
+<a href="/database">Go back</a> or <a href="">Edit</a>
+<div id="container" style="margin-top: 15px; border: 1px solid #ededed; padding: 10px;border-radius: 4px">
+	<div style="width:810px; margin-top: 5px; display: inline-block;  padding-bottom: 10px; border-radius: 4px">
+		<div style="width:150px; margin-left: 10px; margin-top: 5px; float: left; display: inline-block">
+			<img src="/avatars/<%= @resident.name %>.png" width="150" style="margin-bottom:0">
+			<span class="stats">
+				<%= @resident.name %>
+			</span>
+		<div style="margin-top: 10px">
+			<b>Age:</b> 21</br>
+			<b>MBTI:</b> INTJ</br>
+			<b>IQ:</b> 130+</br>
+		</div>
+		</div>
+		<div style="padding: 15px; padding-left: 20px; width: 615px; display: inline-block">
+			<% if @resident.bio.blank? %>
+			<i>There appears to be nothing here. <a href="/database/resident/edit/<%= @resident.name %>">Fill it in!</a></i>
+			<% else %>
+			<%= @resident.bio %>
+			</br></br>edited at <%= @resident.updated_at.strftime('%F %H:%M') %> by <a href="">Cub Michaels</a>
+			<% end %>
+		</div>
+	</div>
+</div>
+<div style="margin-top:15px">
+	<h2 style="margin:0">References</h2>
+	<!--<p style="margin:0">There appear to be no references. <a href="">Add some!</a></p>-->
+	<ol>
+		<li><a href="">www.google.ca</a></li>
+	</ol>
+	<h2>History</h2>
+	<ol>
+		<li><a href="">Wed Feb 8 2018 4:20PM</a></li>
+		<li><a href="">Wed Feb 7 2018 1:03PM</a></li>
+	</ol>
+</div>

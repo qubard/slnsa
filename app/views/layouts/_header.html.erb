@@ -1,0 +1,7 @@
+<div id="masthead">
+	<div class="inner" style="float:left; display:block">
+		<img src="/logo-100-x.png"/>
+	</div>
+	<ul class="tabmenu">
+	<li <% if @tab == "dashboard" %>class="selected"<% end %>><a href="/dashboard">dashboard</a></li><li <% if @tab == "database" %>class="selected"<% end %>><a href="/database" class="choice">database</a></li><li <% if @tab == "agents" %>class="selected"<% end %>><a href="/agents" class="choice">agents</a></li><li <% if @tab == "faq" %>class="selected"<% end %>><a href="/faq" class="choice">faq</a></li><li><a href="/logout" class="choice">logout</a></li></ul>
+</div>
