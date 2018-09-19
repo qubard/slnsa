@@ -1,16 +1,14 @@
 # slnsa
 
-A web app for the Second Life NSA.
+A web app developed for the Second Life NSA.
 
 # Current features
 
-* User registration
+* User registration and login
 
 * User authentication middleware
 
 * Adding a resident
-
-* Cropping a resident (form)
 
 * Basic user dashboard
 
